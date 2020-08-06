@@ -1,0 +1,39 @@
+.chooser-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.chooser-container h1{
+    font-weight: 900;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.chooser-container .options{
+    display: flex;
+}
+.chooser-container .card{
+    background:linear-gradient( #fdc830, #f37335);
+    border-radius: 20px;
+    color: #fff;
+    width: 250px;
+    height: 300px;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.5s;
+}
+.chooser-container .card:hover{
+    box-shadow: 5px 5px 30px #fbff00;
+}
+.chooser-container .card+ .card{
+    margin-left:130px;
+}
+.chooser-container .card img{
+    width: 100px;
+    margin-bottom: 30px;
+}
+.chooser-container .card h4{
+    font-size: 20px;
+}

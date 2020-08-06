@@ -1,0 +1,89 @@
+.eggground{
+    max-width: 1120px;
+    height: 100vh;
+}
+.login-container{
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    justify-content: space-between;
+}
+.login-container .form{
+    align-self: center;
+    text-align: center;
+    margin-right: 20vw;
+}
+.login-container .form h1{
+    margin-top:15px;
+    font-size: 35px;
+}
+.login-container .form h3{
+    font-size: 20px;
+}
+.login-container form div input[type="text"],
+.login-container form div input[type="password"]{
+    margin-top:40px;
+    border-radius: 8px;
+    padding-left: 80px;
+    width: 450px;
+    height: 60px;
+    border:0;
+    background: #FFC43A;
+    color:rgb(12, 12, 12);
+}
+.login-container form div input[type="password"]{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.login-container .form input::placeholder{
+    color: rgb(34, 34, 34);
+    font-weight: 700;
+}
+.login-container form .email{
+    position: relative;
+}
+.login-container form .email:before{
+    content: "";
+    position: absolute;
+    left: 20px;
+    top:50px;
+    width: 40px;
+    height: 40px;
+    background: url("data:image/svg+xml,%3Csvg width='49' height='48' viewBox='0 0 49 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M24.5 22C28.4465 22 31.6458 18.866 31.6458 15C31.6458 11.134 28.4465 8 24.5 8C20.5535 8 17.3542 11.134 17.3542 15C17.3542 18.866 20.5535 22 24.5 22Z' fill='white'/%3E%3Cpath d='M24.5 0C19.6544 0 14.9175 1.40758 10.8885 4.04473C6.85952 6.68188 3.7193 10.4302 1.86495 14.8156C0.0106047 19.201 -0.474577 24.0266 0.470761 28.6822C1.4161 33.3377 3.7495 37.6141 7.17588 40.9706C10.6023 44.327 14.9678 46.6128 19.7203 47.5388C24.4728 48.4649 29.3989 47.9896 33.8757 46.1731C38.3525 44.3566 42.1789 41.2805 44.871 37.3337C47.5631 33.3869 49 28.7468 49 24C49 17.6348 46.4187 11.5303 41.8241 7.02944C37.2295 2.52856 30.9978 0 24.5 0V0ZM24.5 5.625C26.4875 5.625 28.4304 6.20234 30.083 7.28401C31.7355 8.36569 33.0235 9.90311 33.7841 11.7019C34.5447 13.5006 34.7437 15.4799 34.356 17.3895C33.9682 19.299 33.0112 21.0531 31.6058 22.4298C30.2004 23.8065 28.4098 24.744 26.4605 25.1238C24.5111 25.5037 22.4906 25.3087 20.6544 24.5637C18.8182 23.8186 17.2487 22.5569 16.1445 20.938C15.0403 19.3192 14.4509 17.416 14.4509 15.469C14.4539 12.8591 15.5136 10.3569 17.3975 8.51146C19.2814 6.66598 21.8357 5.62791 24.5 5.625ZM40.8129 33.075C39.1751 35.8989 36.8027 38.2472 33.9372 39.8808C31.0717 41.5144 27.8155 42.3751 24.5 42.3751C21.1845 42.3751 17.9283 41.5144 15.0628 39.8808C12.1973 38.2472 9.82487 35.8989 8.18708 33.075L7.67667 32.201L8.35756 31.448C9.30074 30.404 10.4593 29.568 11.7568 28.9952C13.0542 28.4224 14.461 28.1258 15.8842 28.125H33.1138C34.5369 28.1257 35.9437 28.4223 37.2412 28.9951C38.5387 29.5679 39.6973 30.404 40.6404 31.448L41.3213 32.201L40.8129 33.075Z' fill='white'/%3E%3Cpath d='M15.8872 30.937C14.1921 30.9378 12.552 31.5258 11.2567 32.597C12.7059 34.7386 14.6737 36.4954 16.9846 37.7107C19.2955 38.9261 21.8776 39.5621 24.5005 39.5621C27.1234 39.5621 29.7055 38.9261 32.0164 37.7107C34.3273 36.4954 36.2951 34.7386 37.7443 32.597C36.4491 31.5258 34.8089 30.9378 33.1138 30.937H15.8872Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='49' height='48' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") center/ contain no-repeat;
+}
+.login-container form .password{
+    position: relative;
+}
+.login-container form .password:before{
+    content: "";
+    position: absolute;
+    left: 20px;
+    top:30px;
+    width: 35px;
+    height: 35px;
+    background: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M59.375 28.5H57V19C57 8.52149 48.4785 -7.62939e-06 38 -7.62939e-06C27.5215 -7.62939e-06 19 8.52149 19 19V28.5H16.625C12.6983 28.5 9.5 31.6952 9.5 35.625V68.875C9.5 72.8048 12.6983 76 16.625 76H59.375C63.3017 76 66.5 72.8048 66.5 68.875V35.625C66.5 31.6952 63.3017 28.5 59.375 28.5ZM25.3333 19C25.3333 12.0143 31.0143 6.33333 38 6.33333C44.9857 6.33333 50.6667 12.0143 50.6667 19V28.5H25.3333V19ZM41.1667 52.953V60.1667C41.1667 61.9147 39.7512 63.3333 38 63.3333C36.2488 63.3333 34.8333 61.9147 34.8333 60.1667V52.953C32.9492 51.8542 31.6667 49.8338 31.6667 47.5C31.6667 44.0072 34.5072 41.1667 38 41.1667C41.4928 41.1667 44.3333 44.0072 44.3333 47.5C44.3333 49.8338 43.0508 51.8542 41.1667 52.953Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='76' height='76' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") center/ contain no-repeat;
+}
+.login-container form a#reset-password{
+    font-size: 18px;
+    display: flex;
+}
+.login-container .form button{
+    display: block;
+    margin:0 auto;
+    border:0;
+    border-radius:8px;
+    margin-top: 30px;
+    width: 120px;
+    height: 55px;
+    font-size: 25px;
+    background:#FFC43A;
+    color:white;
+}
+.login-container .form p{
+    margin:8px;
+    color:#686868;
+    font-size:20px;
+}
+.login-container .form a{
+    font:700 25px Roboto,'sans-serif';
+}

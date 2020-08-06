@@ -1,0 +1,106 @@
+.bar-container{
+    background: #fff;
+    box-shadow: 3px 0px 12px rgba(0, 0, 0, 0.678);
+    width: 16%;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    z-index:5;
+}
+.bar-container header{
+    margin-top: 10px;
+}
+.bar-container header img{
+    width: 70px;
+}
+.bar-container h3{
+    font:700 25px Roboto,'sans-serif';
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    stroke-width: 1px;
+    stroke: #000;
+}
+.bar-container section{
+    margin-top: 40px;
+}
+.bar-container section a{
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+.bar-container section a+a{
+    margin-top: 30px;
+}
+.bar-container section a.Dashboard img{
+    width: 30px;
+}
+.bar-container section a.Dashboard h4{
+    color:#1976D2;
+    font-size: 18px;
+    margin-left: 15px;
+}
+.bar-container section a.Setor{
+    color:#F64242;
+}
+.bar-container section a.Setor .text{
+    text-align: left;
+}
+.bar-container section a.Setor img{
+    width: 30px;
+}
+.bar-container section a.Setor h4,.bar-container section a.Setor p{
+    margin-left: 15px;
+}
+.bar-container section a.Setor h4{
+    font-size: 18px;
+}
+.bar-container section a.Setor p{
+    font-size: 18px;
+}
+.bar-container section a.Ovos{
+    color:#FFC43A;
+}
+.bar-container section a.Ovos img{
+    width: 30px;
+    height: 40px;
+}
+.bar-container section a.Ovos .text{
+    text-align: left;
+}
+.bar-container section a.Ovos h4,.bar-container section a.Ovos p{
+    margin-left: 10px;
+}
+.bar-container section a.Ovos h4{
+    font-size: 18px;
+}
+.bar-container section a.Ovos p{
+    font-size: 18px;
+}
+.bar-container section a.Granja{
+    color:#11ADE8;
+}
+.bar-container section a.Granja img{
+    width: 30px;
+}
+.bar-container section a.Granja .text{
+    text-align: left;
+}
+.bar-container section a.Granja h4,.bar-container section a.Granja p{
+    margin-left: 14px;
+}
+.bar-container section a.Granja h4{
+    font-size: 18px;
+}
+.bar-container section a.Granja p{
+    font-size: 18px;
+}
+.bar-container hr{
+    position: relative;
+    float: right;
+    transform: rotate(90deg);
+    width:40px;
+    border:1px solid #1976D2;
+    transition: top 1s;
+}
+

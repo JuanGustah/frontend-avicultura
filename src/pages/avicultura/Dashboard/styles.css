@@ -1,0 +1,25 @@
+.dashboard-container{
+    width: 100%;
+    height: 100vh;
+
+    display:flex;
+    background: linear-gradient(180deg, #3496C2 0%, #080030 100%);
+    background-size:100vw 60vh;
+    background-repeat:no-repeat ;
+}
+
+.dashboard-container .content{
+    padding: 30px 50px;
+}
+.dashboard-container .content h2{
+    color: #fff;
+}
+.dashboard-container .content .container{
+ margin-top: 30px;
+ padding: 30px;
+ background-color: #fff;
+ border-radius: 15px;
+ box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.726);
+ width: 55vw;
+ height: 65vh;
+}
