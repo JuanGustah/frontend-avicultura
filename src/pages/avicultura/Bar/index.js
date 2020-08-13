@@ -25,6 +25,9 @@ export default function Bar(){
             case '/egg/revisar':
                 hr.style.top='195px';
                 break;
+            case '/profile':
+                hr.style.top='267px';
+                break;
             default:
                 hr.style.display='none';
         }

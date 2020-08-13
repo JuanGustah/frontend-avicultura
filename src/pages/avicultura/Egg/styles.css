@@ -11,8 +11,18 @@
 .ovo-container .content{
     padding: 20px 50px;
 }
-.ovo-container .content h2{
+.ovo-container .content header{
+  display: flex;
+  justify-content: space-between;
+}
+.ovo-container .content header h2{
     color: #fff;
+}
+.ovo-container .content header button{
+  border:0;
+  background-color: transparent;
+  padding: 0px;
+  margin:0px;
 }
 .ovo-container .content .container{
  margin-top: 10px;

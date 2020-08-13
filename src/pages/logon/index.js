@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import logoImg from '../../assets/chicken.svg'
+import logoImg from '../../assets/chicken.svg';
+import {FiEye,FiEyeOff} from 'react-icons/fi';
 import background from '../../assets/egground.svg'
 import {Link,useHistory} from 'react-router-dom';
 import api from '../../services/api'
@@ -9,6 +10,7 @@ import './logon.css'
 export default function Logon (){
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
+    const [showPassword,setShowPassword]=useState(false);
     const history=useHistory();
 
     async function handleLogin(event){
@@ -47,11 +49,13 @@ export default function Logon (){
                         />
                     </div>
                     <div className="password">
-                    <input type="password" 
+                        <input type={showPassword?'text':'password'}
                         placeholder="Senha"
                         value={password}
                         onChange={e=> setPassword(e.target.value)}
                         />
+                        {showPassword? <FiEyeOff size={20} onClick={()=>setShowPassword(!showPassword)}/>: 
+                        <FiEye size={20} onClick={()=>setShowPassword(!showPassword)}/> }
                     </div>
                     <Link to="/forgotpassword" id="reset-password">Esqueci minha senha</Link>
 

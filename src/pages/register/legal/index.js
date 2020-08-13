@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import {FiEye,FiEyeOff} from 'react-icons/fi'
 import api from '../../../services/api';
 import './legal.css';
 
@@ -13,10 +14,10 @@ export default function Legal(){
     const [password,setPassword] =useState('');
     const [gaiola,setGaiola] =useState(false);
     const [termosDeUso,setTermosDeUso] =useState(false);
+    const [showPassword,setShowPassword]=useState(false);
     const history=useHistory();
 
     async function handleRegister(event){
-        event.preventDefault();
         const data={
             nomeFantasia,
             razaoSocial,
@@ -42,15 +43,24 @@ export default function Legal(){
             }
         }
     }
+    function handleCNPJInput(inputCnpj){
+        inputCnpj=inputCnpj.replace(/\D/g,"")
+        inputCnpj=inputCnpj.replace(/^(\d{2})(\d)/,"$1.$2")
+        inputCnpj=inputCnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+        inputCnpj=inputCnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
+        inputCnpj=inputCnpj.replace(/(\d{4})(\d)/,"$1-$2")
+        setCnpj(inputCnpj)       
+    }
     return(
         <div className="legal-container">
             <h2>Criar Conta Jurídica</h2>
-            <form onSubmit={handleRegister}id="register_form">
+            <form onSubmit={handleRegister} id="register_form">
                 <div className="name">
                     <input type="text" 
                     placeholder="Nome Fantasia"
                     value={nomeFantasia}
                     onChange={e=> setNomeFantasia(e.target.value)}
+                    required
                     />
                 </div>
                 <div className="social_reason">
@@ -58,27 +68,34 @@ export default function Legal(){
                     placeholder="Razão Social"
                     value={razaoSocial}
                     onChange={e=> setRazaoSocial(e.target.value)}
+                    required
                     />
                 </div>
                 <div className="email">
                     <input type="text" 
-                    placeholder="email"
+                    placeholder="Email"
                     value={email}
                     onChange={e=> setEmail(e.target.value)}
+                    required
                     />
                 </div>
                  <div className="password">
-                    <input type="text" 
-                    placeholder="senha"
+                    <input type={showPassword?'text':'password'}
+                    placeholder="Senha"
                     value={password}
                     onChange={e=> setPassword(e.target.value)}
+                    required
                     />
+                    {showPassword? <FiEyeOff size={20} onClick={()=>setShowPassword(!showPassword)}/>: 
+                    <FiEye size={20} onClick={()=>setShowPassword(!showPassword)}/> }
+                    
                 </div>
                 <div className="owner">
                     <input type="text" 
                     placeholder="Proprietário"
                     value={proprietario}
                     onChange={e=> setProprietario(e.target.value)}
+                    required
                     />
                 </div>
                 <div className="cnpj">
@@ -86,6 +103,11 @@ export default function Legal(){
                     placeholder="CNPJ"
                     value={cnpj}
                     onChange={e=> setCnpj(e.target.value)}
+                    onKeyPress={e=>handleCNPJInput(e.target.value)}
+                    required
+                    pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}"
+                    title="Digite o formato correto do CNPJ!"
+                    maxLength="18"
                     />
                 </div>
                 <div className="localization">
@@ -93,6 +115,7 @@ export default function Legal(){
                     placeholder="Localização"
                     value={localizacao}
                     onChange={e=> setLocalizacao(e.target.value)}
+                    required
                     />
                 </div>
                 <div className="toggle">

@@ -30,12 +30,12 @@ export default function Physical(){
                 </div>
                 <div className="email">
                     <input type="text" 
-                    placeholder="email"
+                    placeholder="Email"
                     />
                 </div>
                  <div className="password">
                     <input type="text" 
-                    placeholder="senha"
+                    placeholder="Senha"
                     />
                 </div>
                 <div className="owner">

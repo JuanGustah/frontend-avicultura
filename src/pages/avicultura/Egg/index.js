@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {FiChevronRight} from 'react-icons/fi';
+import {FiChevronRight,FiPower} from 'react-icons/fi';
 import {useHistory} from 'react-router-dom';
 
 import api from '../../../services/api'
@@ -55,12 +55,23 @@ export default function Egg(){
         bubble.innerHTML = val;
     
     }
-
+    function logoff(){
+        localStorage.clear();
+        history.push('/');
+    }
     return(
         <div className="ovo-container">
             <div className="content">
-                <h2>Cadastro de ovo</h2>
-                <h3>Gema</h3>
+                <header>
+                    <div>
+                        <h2>Cadastro de ovo</h2>
+                        <h3>Gema</h3>
+                    </div>
+                    <button onClick={logoff}>
+                        <FiPower color={'#000'} size={20}/>
+                    </button>
+                </header>
+
                 <div className="container">
                 <form onSubmit={handleGema} id="sector_form">
                         <div className="input-group">

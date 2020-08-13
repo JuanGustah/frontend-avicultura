@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import {FiChevronRight} from 'react-icons/fi';
-
+import {FiChevronRight,FiPower} from 'react-icons/fi';
+import {useHistory} from 'react-router-dom'
 import './styles.css';
 
 import api from '../../../services/api';
@@ -12,6 +12,7 @@ export default function Sector(){
     const [nutrição,setNutricao]=useState('');
     const [numero_de_aves,setAves]=useState(0);
     const granjaID=sessionStorage.getItem('granjaID');
+    const history=useHistory();
 
     async function handleSector(event){
 
@@ -34,11 +35,20 @@ export default function Sector(){
             alert('Algo deu errado,tente novamente')
         }
     }
-
+    function logoff(){
+        localStorage.clear();
+        history.push('/');
+    }
+    
     return(
         <div className="section-container">
             <div className="content">
-                <h2>Cadastro de Setor/Lote</h2>
+                <header>
+                    <h2>Cadastro de Setor/Lote</h2>
+                    <button onClick={logoff}>
+                        <FiPower color={'#fff'} size={20}/>
+                    </button>
+                </header>
                 <div className="container">
                     <form onSubmit={handleSector} id="sector_form">
                         <div className="input-group">

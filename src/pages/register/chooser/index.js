@@ -12,11 +12,11 @@ export default function Chooser(){
             <div className="options">
                 <Link to="/register/legal" className="card">
                     <img src={LegalImg} alt="Granja Jurídica"/>
-                    <h4>Granja Jurídica</h4>
+                    <h4>Granja Pessoa Jurídica</h4>
                 </Link>
                 <Link to="/register/physical" className="card">
                     <img src={PhysicalImg} alt="Granja Fisica"/>
-                    <h4>Granja Física</h4>
+                    <h4>Granja Pessoa Física</h4>
                 </Link>
             </div>
         </div>

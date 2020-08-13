@@ -11,8 +11,18 @@
 .section-container .content{
     padding: 30px 50px;
 }
-.section-container .content h2{
+.section-container .content header{
+    display: flex;
+    justify-content: space-between;
+}
+.section-container .content header h2{
     color: #fff;
+}
+.section-container .content header button{
+    border:0;
+    background-color: transparent;
+    padding: 0px;
+    margin:0px;
 }
 .section-container .content .container{
  margin-top: 30px;

@@ -25,7 +25,7 @@
     transition: box-shadow 0.5s;
 }
 .chooser-container .card:hover{
-    box-shadow: 5px 5px 30px #fbff00;
+    box-shadow: 0px 0px 30px #fbff00;
 }
 .chooser-container .card+ .card{
     margin-left:130px;

@@ -7,28 +7,72 @@
     background-size:100vw 60vh;
     background-repeat:no-repeat ;
 }
-
 .profile-container .content{
-    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left:5%;
+    padding-top:6vh ;
 }
 .profile-container .content header{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: flex-start;
 }
 .profile-container .content header button{
     border:0;
     background-color: transparent;
+    margin-top: 0.43em;
+}
+.profile-container .content .central{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-container .content .central .img-container{
+    background-color:#fff;
+    width: 20vh;
+    height: 20vh;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+}
+.profile-container .content .central h2{
+    color:rgb(26, 26, 26);
+    margin-top:5px;
 }
 .profile-container .content h2{
     color: #fff;
 }
 .profile-container .content .container{
- margin-top: 30px;
- padding: 30px;
+ margin-top: 20px;
+ margin-bottom:30px;
+ margin-left:8vw;
+ margin-right:8vw;
+ padding:30px;
  background-color: #fff;
  border-radius: 15px;
  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.726);
- width: 55vw;
- height: 65vh;
+ width: 50vw;
+ height: 60vh;
+}
+.profile-container .content .container h2{
+    color:#000;
+    margin-bottom:15px;
+}
+.profile-container .content .container .options{
+    margin-top:20px;
+    margin-bottom:30px;
+    padding-left: 15px;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 30px;
+}
+.profile-container .content .container .options a{
+    font-size:20px;
+    display: flex;
+    align-items: center;
+}
+.profile-container .content .container .options a svg{
+    margin-left:10px;
 }

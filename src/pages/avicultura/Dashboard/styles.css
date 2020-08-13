@@ -11,8 +11,17 @@
 .dashboard-container .content{
     padding: 30px 50px;
 }
-.dashboard-container .content h2{
+.dashboard-container .content header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard-container .content header h2{
     color: #fff;
+}
+.dashboard-container .content header button{
+    border:0;
+    background-color: transparent;
 }
 .dashboard-container .content .container{
  margin-top: 30px;
@@ -22,4 +31,12 @@
  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.726);
  width: 55vw;
  height: 65vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.dashboard-container .content .container img{
+    width:30vw;
+    height: 50vh;
 }
