@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
-import {useHistory} from 'react-router-dom';
-import {FiEye,FiEyeOff} from 'react-icons/fi'
+import {FiEye,FiEyeOff} from 'react-icons/fi';
 import api from '../../../services/api';
 import './legal.css';
 
@@ -15,9 +14,9 @@ export default function Legal(){
     const [gaiola,setGaiola] =useState(false);
     const [termosDeUso,setTermosDeUso] =useState(false);
     const [showPassword,setShowPassword]=useState(false);
-    const history=useHistory();
 
     async function handleRegister(event){
+        event.preventDefault();
         const data={
             nomeFantasia,
             razaoSocial,
@@ -30,17 +29,17 @@ export default function Legal(){
             password
         }
         try{
-            await api.post('cadastro',data);
-            alert('Granja Cadastrada com Sucesso!');
-            history.push("/");
+            if(termosDeUso){
+                localStorage.setItem("TipoCadastro","juridico");
+                api.post('/cadastro-juridico',data).then(
+                    alert('Um email de verificação foi enviado para sua caixa de mensagem, por favor confirme para prosseguirmos.')
+                );
+            }else{
+                alert('É preciso concordar com os Termos de uso para continuar.');
+            }
         }
         catch(error){
-            if(error.message.includes('428')){
-                alert('É necessário aceitar os termos de uso para se cadastrar no sistema')
-            }
-            else{
-                alert('Ocorreu um problema ao se cadastrar. Por favor,tente novamente')
-            }
+            alert('Ocorreu um problema ao se cadastrar. Por favor,tente novamente')
         }
     }
     function handleCNPJInput(inputCnpj){
@@ -54,13 +53,14 @@ export default function Legal(){
     return(
         <div className="legal-container">
             <h2>Criar Conta Jurídica</h2>
-            <form onSubmit={handleRegister} id="register_form">
+            <form onSubmit={handleRegister} id="register_form" >
                 <div className="name">
                     <input type="text" 
                     placeholder="Nome Fantasia"
                     value={nomeFantasia}
                     onChange={e=> setNomeFantasia(e.target.value)}
                     required
+                    autoComplete="none"
                     />
                 </div>
                 <div className="social_reason">
@@ -69,6 +69,7 @@ export default function Legal(){
                     value={razaoSocial}
                     onChange={e=> setRazaoSocial(e.target.value)}
                     required
+                    autoComplete="none"
                     />
                 </div>
                 <div className="email">
@@ -77,6 +78,7 @@ export default function Legal(){
                     value={email}
                     onChange={e=> setEmail(e.target.value)}
                     required
+                    autoComplete="none"
                     />
                 </div>
                  <div className="password">
@@ -106,7 +108,7 @@ export default function Legal(){
                     onKeyPress={e=>handleCNPJInput(e.target.value)}
                     required
                     pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}"
-                    title="Digite o formato correto do CNPJ!"
+                    title="Digite um CNPJ válido!"
                     maxLength="18"
                     />
                 </div>

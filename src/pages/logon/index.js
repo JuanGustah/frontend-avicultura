@@ -21,13 +21,15 @@ export default function Logon (){
         }
         try{
             const response=await api.post('login',data);
-            sessionStorage.setItem('granjaName',response.data.granja.nomeFantasia);
-            sessionStorage.setItem('granjaID',response.data.granja.id);
             sessionStorage.setItem('token',response.data.responsejwt);
             history.push('/dashboard');
         }
         catch(error){
-            alert('O Email e Senha informado não corresponde a nenhuma granja cadastrada')
+            if(error.message.includes('400')){
+                alert('Usuário não confirmou email,verifique sua caixa de mensagem e confirme seu email antes de entrar no sistema.')
+            }else{
+                alert('Email e senha não correspondem a nenhuma granja cadastrada. ')
+            }
         }
     }
 

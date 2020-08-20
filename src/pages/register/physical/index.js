@@ -1,5 +1,9 @@
 import React,{useState} from 'react';
 
+import {FiEye,FiEyeOff} from 'react-icons/fi';
+
+import api from '../../../services/api';
+
 import './physical.css';
 
 export default function Physical(){
@@ -7,18 +11,59 @@ export default function Physical(){
     const [proprietario,setProprietario] =useState('');
     const [cpf,setCpf] =useState('');
     const [localizacao,setLocalizacao] =useState('');
+    const [email,setEmail] =useState('');
+    const [password,setPassword] =useState('');
     const [gaiola,setGaiola] =useState(false);
     const [termosDeUso,setTermosDeUso] =useState(false);
+    const [showPassword,setShowPassword]=useState(false);
 
+    async function handleRegister(event){
+        event.preventDefault();
+
+        const data={
+            nome,
+            cpf,
+            proprietario,
+            gaiola,
+            localizacao,
+            termosDeUso,
+            email,
+            password
+        }
+        try{
+            if(termosDeUso){
+                localStorage.setItem("TipoCadastro","fisico");
+                api.post('/cadastro-fisico',data).then(
+                    alert('Um email de verificação foi enviado para sua caixa de mensagem, por favor confirme para prosseguirmos.')
+                );
+            }else{
+                alert('É preciso concordar com os Termos de uso para continuar.');
+            }
+        }
+        catch(error){
+            alert('Ocorreu um problema ao se cadastrar. Por favor,tente novamente')
+        }
+    }
+
+    function handleCPFInput(inputCpf){
+        inputCpf=inputCpf.replace(/\D/g,"")
+        inputCpf=inputCpf.replace(/^(\d{3})(\d)/,"$1.$2")
+        inputCpf=inputCpf.replace(/\.(\d{3})(\d)/,".$1.$2")
+        inputCpf=inputCpf.replace(/\.(\d{3})(\d)/,".$1-$2")
+        setCpf(inputCpf)       
+    }
+    
     return(
         <div className="legal-container">
             <h2>Criar Conta Física</h2>
-            <form id="register_form">
+            <form id="register_form" onSubmit={handleRegister}>
                 <div className="name">
                     <input type="text" 
-                    placeholder="Nome"
+                    placeholder="Nome da Granja"
                     value={nome}
                     onChange={e=> setNome(e.target.value)}
+                    autoComplete="none"
+                    required
                     />
                 </div>
                 <div className="cpf">
@@ -26,23 +71,39 @@ export default function Physical(){
                     placeholder="CPF"
                     value={cpf}
                     onChange={e=> setCpf(e.target.value)}
+                    onKeyPress={e=>handleCPFInput(e.target.value)}
+                    required
+                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+                    title="Digite um CPF válido!"
+                    maxLength="14"
                     />
                 </div>
                 <div className="email">
                     <input type="text" 
                     placeholder="Email"
+                    autoComplete="none"
+                    value={email}
+                    onChange={e=> setEmail(e.target.value)}
+                    required
                     />
                 </div>
                  <div className="password">
-                    <input type="text" 
+                    <input type={showPassword?'text':'password'}
                     placeholder="Senha"
+                    value={password}
+                    onChange={e=> setPassword(e.target.value)}
+                    required
                     />
+                    {showPassword? <FiEyeOff size={20} onClick={()=>setShowPassword(!showPassword)}/>: 
+                    <FiEye size={20} onClick={()=>setShowPassword(!showPassword)}/> }
+                    
                 </div>
                 <div className="owner">
                     <input type="text" 
                     placeholder="Proprietário"
                     value={proprietario}
                     onChange={e=> setProprietario(e.target.value)}
+                    required
                     />
                 </div>
                 <div className="localization">
@@ -50,6 +111,7 @@ export default function Physical(){
                     placeholder="Localização"
                     value={localizacao}
                     onChange={e=> setLocalizacao(e.target.value)}
+                    required
                     />
                 </div>
             </form>

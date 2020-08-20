@@ -11,7 +11,7 @@ export default function Sector(){
     const [idade,setIdade]=useState(0);
     const [nutrição,setNutricao]=useState('');
     const [numero_de_aves,setAves]=useState(0);
-    const granjaID=sessionStorage.getItem('granjaID');
+    const token=sessionStorage.getItem('token');
     const history=useHistory();
 
     async function handleSector(event){
@@ -26,7 +26,7 @@ export default function Sector(){
         try{
             const response=await api.post('/setor-lote',data,{
                 headers:{
-                    Authorization:granjaID,
+                    Authorization:token,
                 }
             })
             alert(`Setor cadastrado com Sucesso! Seu id é: ${response.data.id}`)
@@ -37,6 +37,7 @@ export default function Sector(){
     }
     function logoff(){
         localStorage.clear();
+        sessionStorage.clear();
         history.push('/');
     }
     

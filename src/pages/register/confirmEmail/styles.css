@@ -1,0 +1,34 @@
+.confirm-container{
+    width: 100%;
+    height: 100vh;
+    background-color: #FFC43A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.confirm-container .container{
+    width: 500px;
+    height: 75vh;
+    padding:40px;
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.63);
+    border-radius:8px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.confirm-container .container img{
+    width: 300px;
+    margin: 10px;
+}
+.confirm-container .container h1{
+    margin: 10px;
+    font-weight: 900;
+    font-size: 35px;
+}
+.confirm-container .container p{
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+}

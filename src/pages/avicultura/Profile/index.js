@@ -10,6 +10,7 @@ export default function Profile(){
     const history=useHistory();
     function logoff(){
         localStorage.clear();
+        sessionStorage.clear();
         history.push('/');
     }
     return(

@@ -5,6 +5,7 @@ import Register from './pages/register'
 import Avicultura from './pages/avicultura'
 import CheckEmail from './pages/logon/forgot_password/checkEmail';
 import ChangePassword from './pages/logon/forgot_password/changePassword';
+import Confirm from './pages/register/confirm';
 
 export default function Routes(){
     return(
@@ -12,10 +13,11 @@ export default function Routes(){
             <Switch>
                 <Route path="/" exact component={Logon}/>
                 <Route path="/forgotpassword" exact component={CheckEmail}/>
-                <Route path="/forgotpassword/change" component={ChangePassword}/>
-                <Route path="/register" component={Register}/>
+                <Route path="/forgotpassword/change/:id" component={ChangePassword}/>
+                <Route path="/register" exact component={Register}/>
                 <Route path="/register/legal" component={Register}/>
                 <Route path="/register/physical" component={Register}/>
+                <Route path="/register/confirm/:id" component={Confirm}/>
                 <Route path="/sector" component={Avicultura}/>
                 <Route path="/egg" component={Avicultura}/>
                 <Route path="/egg/albumen" component={Avicultura}/>

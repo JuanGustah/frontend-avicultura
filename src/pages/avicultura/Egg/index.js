@@ -13,18 +13,19 @@ export default function Egg(){
     const [diametroGema,setDiametroGema]=useState('');
     const [pesoGema,setPesoGema]=useState('');
     const [corGema,setCorGema]=useState('');
-    const granjaID=localStorage.getItem('granjaID')
+    const token=localStorage.getItem('token')
     const history=useHistory();
 
     useEffect(()=>{
         api.get('/perfil-lote',{
             headers:{
-                Authorization:granjaID,
+                Authorization:token,
             }
         }).then(response=>{
             setLoteOvoCadastrados(response.data)
         })
-    },[granjaID])
+        alert('Devido as ultimas alterações,aqui parou de funcionar')
+    },[token])
 
     async function handleGema(event){
         event.preventDefault();
