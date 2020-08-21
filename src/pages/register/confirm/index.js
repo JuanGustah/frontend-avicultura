@@ -27,7 +27,7 @@ export default function Confirm(){
                 history.push("/");
             }, 2000)
         }
-    },[])
+    },[id,type,history])
     return (
         <div className="confirm-container">
             <div className="container">

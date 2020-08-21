@@ -6,7 +6,6 @@ import './styles.css'
 import addImg from '../../../assets/add_img.svg';
 
 export default function Profile(){
-    const granjaName=sessionStorage.getItem('granjaName');
     const history=useHistory();
     function logoff(){
         localStorage.clear();
@@ -26,7 +25,6 @@ export default function Profile(){
                         <div className="img-container">
                         <img src={addImg} alt="add Imagem"/>
                         </div>
-                        <h2>{granjaName}</h2>
                 </div>
                 <div className="container">
                     <h2>Informações da Granja</h2>

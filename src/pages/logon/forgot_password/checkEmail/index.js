@@ -1,12 +1,10 @@
 import React,{useState} from 'react'
-import {useHistory} from 'react-router-dom'
 
 import api from '../../../../services/api'
 import './check.css';
 import EmailImg from '../../../../assets/forgot_password.svg'
 
 export default function CheckEmail(){
-    const history= useHistory();
     const [email,setEmail]=useState();
     async function handleSubmit(event){
         event.preventDefault();

@@ -17,7 +17,7 @@ export default function Avicultura(){
         if(tokenJWT===null){
             history.push('/');
         }
-    },[tokenJWT])
+    },[tokenJWT,history])
 
     return(
         <div style={{display:'flex'}}>

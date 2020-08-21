@@ -58,6 +58,7 @@ export default function Egg(){
     }
     function logoff(){
         localStorage.clear();
+        sessionStorage.clear();
         history.push('/');
     }
     return(
