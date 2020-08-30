@@ -10,7 +10,7 @@ export default function Revisar(){
     const [ovosCadastrados,setOvosCadastrados]=useState([]);
 
     useEffect(()=>{
-        api.get('/perfil-ovos')
+        api.get('/lista-ovos')
         .then(response=>{
             setOvosCadastrados(response.data);
         })
@@ -37,7 +37,7 @@ export default function Revisar(){
                 </div>
                 </div>
                 <div className="button-menu">
-                    <Link>
+                    <Link to="/dashboard">
                     Encerrar
                     <FiChevronRight size={20}/>
                     </Link>

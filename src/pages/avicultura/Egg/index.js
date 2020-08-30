@@ -24,7 +24,6 @@ export default function Egg(){
         }).then(response=>{
             setLoteOvoCadastrados(response.data)
         })
-        alert('Devido as ultimas alterações,aqui parou de funcionar')
     },[token])
 
     async function handleGema(event){

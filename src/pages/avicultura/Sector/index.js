@@ -24,12 +24,13 @@ export default function Sector(){
             galpao,
         }
         try{
-            const response=await api.post('/setor-lote',data,{
+            api.post('/setor-lote',data,{
                 headers:{
                     Authorization:token,
                 }
+            }).then( response =>{
+                alert(`Setor cadastrado com Sucesso! Seu id é: ${response.data.id}`)
             })
-            alert(`Setor cadastrado com Sucesso! Seu id é: ${response.data.id}`)
         }
         catch(error){
             alert('Algo deu errado,tente novamente')

@@ -15,7 +15,7 @@ export default function Casca(){
     const albumenID=localStorage.getItem('albumenID');
     const pesoOvo=localStorage.getItem('pesoOvo');
     const loteOvo=localStorage.getItem('loteOvo');
-    const granjaID=localStorage.getItem('granjaID');
+    const tokenJwt=sessionStorage.getItem('token');
     const history=useHistory();
 
     async function handleCasca(event){
@@ -36,20 +36,18 @@ export default function Casca(){
         }
         try{
             const responseCascaId=await api.post('/casca',dataCasca);
-            localStorage.setItem('cascaID',responseCascaId);
             dataOvo.id_casca=responseCascaId.data.id;
-            await api.post('/ovo',dataOvo,{
+            api.post('/ovo',dataOvo,{
                 headers:{
-                    Authorization:granjaID
+                    Authorization:tokenJwt
                 }
-            })
-            alert("Ovo Cadastrado com Sucesso!");
-            localStorage.removeItem('gemaID')
-            localStorage.removeItem('albumenID')
-            localStorage.removeItem('pesoOvo')
-            localStorage.removeItem('loteOvo')
-
-            history.push('/egg/revisar');
+            }).then(
+                alert("Ovo Cadastrado com Sucesso!"),
+                localStorage.removeItem('gemaID'),
+                localStorage.removeItem('albumenID'),
+                localStorage.removeItem('pesoOvo'),
+                localStorage.removeItem('loteOvo'),
+            );
         }catch(error){
             alert("Problema ao inserir Casca em ovo. Por favor,tente novamente.");
         }
