@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 import {FiEye,FiEyeOff} from 'react-icons/fi';
 
@@ -16,7 +17,8 @@ export default function Physical(){
     const [gaiola,setGaiola] =useState(false);
     const [termosDeUso,setTermosDeUso] =useState(false);
     const [showPassword,setShowPassword]=useState(false);
-
+    const history=useHistory();
+    
     async function handleRegister(event){
         event.preventDefault();
 
@@ -34,7 +36,8 @@ export default function Physical(){
             if(termosDeUso){
                 localStorage.setItem("TipoCadastro","fisico");
                 api.post('/cadastro-fisico',data).then(
-                    alert('Um email de verificação foi enviado para sua caixa de mensagem, por favor confirme para prosseguirmos.')
+                    alert('Um email de verificação foi enviado para sua caixa de mensagem, por favor confirme para prosseguirmos.'),
+                    history.push('/')
                 );
             }else{
                 alert('É preciso concordar com os Termos de uso para continuar.');
@@ -54,15 +57,23 @@ export default function Physical(){
     }
     
     return(
-        <div className="legal-container">
+        <div className="physical-container">
             <h2>Criar Conta Física</h2>
-            <form id="register_form" onSubmit={handleRegister}>
+            <form id="register_form" onSubmit={handleRegister} className="registerPyhsical">
                 <div className="name">
                     <input type="text" 
-                    placeholder="Nome da Granja"
+                    placeholder="Nome Fantasia"
                     value={nome}
                     onChange={e=> setNome(e.target.value)}
                     autoComplete="none"
+                    required
+                    />
+                </div>
+                <div className="owner">
+                    <input type="text" 
+                    placeholder="Proprietário"
+                    value={proprietario}
+                    onChange={e=> setProprietario(e.target.value)}
                     required
                     />
                 </div>
@@ -98,14 +109,6 @@ export default function Physical(){
                     <FiEye size={20} onClick={()=>setShowPassword(!showPassword)}/> }
                     
                 </div>
-                <div className="owner">
-                    <input type="text" 
-                    placeholder="Proprietário"
-                    value={proprietario}
-                    onChange={e=> setProprietario(e.target.value)}
-                    required
-                    />
-                </div>
                 <div className="localization">
                     <input type="text" 
                     placeholder="Localização"
@@ -115,6 +118,7 @@ export default function Physical(){
                     />
                 </div>
             </form>
+            <div className="row">
             <div className="toggle">
                     <h3>Criação <br/>de Gaiola</h3>
                     <label className="switch">
@@ -135,6 +139,7 @@ export default function Physical(){
                 onChange={e=> setTermosDeUso(e.target.checked)}
                 />
                 <p>Concordo com os <b>termos de uso de dados</b></p>
+            </div>
             </div>
         </div>
     )

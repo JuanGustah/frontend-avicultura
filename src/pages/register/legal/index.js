@@ -1,4 +1,6 @@
 import React,{useState} from 'react';
+import {useHistory} from 'react-router-dom';
+
 import {FiEye,FiEyeOff} from 'react-icons/fi';
 import api from '../../../services/api';
 import './legal.css';
@@ -14,6 +16,7 @@ export default function Legal(){
     const [gaiola,setGaiola] =useState(false);
     const [termosDeUso,setTermosDeUso] =useState(false);
     const [showPassword,setShowPassword]=useState(false);
+    const history=useHistory();
 
     async function handleRegister(event){
         event.preventDefault();
@@ -32,7 +35,8 @@ export default function Legal(){
             if(termosDeUso){
                 localStorage.setItem("TipoCadastro","juridico");
                 api.post('/cadastro-juridico',data).then(
-                    alert('Um email de verificação foi enviado para sua caixa de mensagem, por favor confirme para prosseguirmos.')
+                    alert('Um email de verificação foi enviado para sua caixa de mensagem, por favor confirme para prosseguirmos.'),
+                    history.push('/')
                 );
             }else{
                 alert('É preciso concordar com os Termos de uso para continuar.');
@@ -72,6 +76,26 @@ export default function Legal(){
                     autoComplete="none"
                     />
                 </div>
+                <div className="cnpj">
+                    <input type="text" 
+                    placeholder="CNPJ"
+                    value={cnpj}
+                    onChange={e=> setCnpj(e.target.value)}
+                    onKeyPress={e=>handleCNPJInput(e.target.value)}
+                    required
+                    pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}"
+                    title="Digite um CNPJ válido!"
+                    maxLength="18"
+                    />
+                </div>
+                <div className="owner">
+                    <input type="text" 
+                    placeholder="Proprietário"
+                    value={proprietario}
+                    onChange={e=> setProprietario(e.target.value)}
+                    required
+                    />
+                </div>
                 <div className="email">
                     <input type="text" 
                     placeholder="Email"
@@ -92,26 +116,7 @@ export default function Legal(){
                     <FiEye size={20} onClick={()=>setShowPassword(!showPassword)}/> }
                     
                 </div>
-                <div className="owner">
-                    <input type="text" 
-                    placeholder="Proprietário"
-                    value={proprietario}
-                    onChange={e=> setProprietario(e.target.value)}
-                    required
-                    />
-                </div>
-                <div className="cnpj">
-                    <input type="text" 
-                    placeholder="CNPJ"
-                    value={cnpj}
-                    onChange={e=> setCnpj(e.target.value)}
-                    onKeyPress={e=>handleCNPJInput(e.target.value)}
-                    required
-                    pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}"
-                    title="Digite um CNPJ válido!"
-                    maxLength="18"
-                    />
-                </div>
+                
                 <div className="localization">
                     <input type="text" 
                     placeholder="Localização"

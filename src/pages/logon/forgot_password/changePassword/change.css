@@ -26,7 +26,8 @@
 .change-container .container form{
     margin-top: 30px;
 }
-.change-container .container form input[type="text"]{
+.change-container .container form input[type="text"],
+.change-container .container form input[type="password"]{
     margin-top: 8px;
     margin-bottom: 15px;
     width: 20vw;
@@ -36,6 +37,11 @@
     color:#fff;
     border-radius: 8px;
     padding:0 24px;
+}
+.change-container form .password svg{
+    position: absolute;
+    margin-top:25px;
+    margin-left:-40px;
 }
 .change-container .button_row{
     margin-top: 20px;
@@ -51,4 +57,11 @@
     font-size: 20px;
     background:#FFC43A;
     color:white;
+}
+.change-container p{
+    display: flex;
+    align-items: center;
+}
+.change-container p svg{
+    margin-right: 10px;
 }

@@ -3,8 +3,21 @@
     height: 100vh;
     background-color: #FFC43A;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.check-container header{
+    width:500px;
+}
+.check-container header button{
+    display: flex;
+    background-color: transparent;
+    border:0;
+    margin:5px;
+}
+.check-container header button svg{
+    margin-right:10px;
 }
 .check-container .container{
     width: 500px;
@@ -36,7 +49,7 @@
     display: flex;
     justify-content: center;
 }
-.check-container button,.check-container a{
+.check-container .container button,.check-container .container a{
     border:0;
     border-radius:8px;
     width: 140px;
