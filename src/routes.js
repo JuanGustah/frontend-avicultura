@@ -20,9 +20,10 @@ export default function Routes(){
                 <Route path="/register/confirm/:id" component={Confirm}/>
                 <Route path="/sector" component={Avicultura}/>
                 <Route path="/egg" component={Avicultura}/>
+                <Route path="/egg/gema" component={Avicultura}/>
                 <Route path="/egg/albumen" component={Avicultura}/>
                 <Route path="/egg/casca" component={Avicultura}/>
-                <Route path="/egg/revisar" component={Avicultura}/>
+                <Route path="/egg/revisar/:page" component={Avicultura}/>
                 <Route path="/dashboard" component={Avicultura}/>
                 <Route path="/profile" component={Avicultura}/>
             </Switch>

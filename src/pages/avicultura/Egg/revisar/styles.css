@@ -51,11 +51,16 @@
     margin-left: 15px;
     font:700 18px Roboto,'sans-serif';
 }
-.revisar-container .content .container .collection .row  a{
-    color:#FFC43A;
-    font-size: 17px;
+.revisar-container .content .container .collection .row .button-group a{
+    color:#fff;
+    background-color: #FFA64D;
+    padding:0.5rem 1rem;
+    border-radius: 25px;
 }
-.revisar-container .content .button-menu a{
+.revisar-container .content .container .collection .row .button-group a+a{
+    margin-left:1rem;
+}
+.revisar-container .content .button-menu a, .revisar-container .content .button-menu button{
     font:500 15px Roboto,'sans-serif';
     display: flex;
     align-items: center;
@@ -68,6 +73,9 @@
     padding-right: 15px;
     margin-top: 15px;
     float: right;
+}
+.revisar-container .content button svg{
+    margin-left:1rem;
 }
 .revisar-container .content .button-menu a+ a{
     margin-right: 15px;
