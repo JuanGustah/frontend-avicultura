@@ -16,6 +16,7 @@ export default function Revisar(){
 
     const sessionId=sessionStorage.getItem('sessionId');
     const insertType=sessionStorage.getItem('insertType');
+    const quantityFixed=sessionStorage.getItem('quantityFixed');
     const eggQuantity=sessionStorage.getItem('eggQuantity');
     const component=sessionStorage.getItem('component');
     const nextRoute=sessionStorage.getItem('nextRoute');
@@ -31,8 +32,15 @@ export default function Revisar(){
             setOvosCadastrados(response.data.eggData);
             setEggPages(response.data.pages);
         })
+
     },[page])
-    
+    function nextRouteWithoutQuantity(){
+        if(nextRoute!=='finalizar'){
+            sessionStorage.setItem('eggQuantity',sessionStorage.getItem('eggIndex'));
+        }else{
+            sessionStorage.setItem('afterInsection',true);
+        }
+    }
 
     return(
         <div className="revisar-container">
@@ -43,20 +51,19 @@ export default function Revisar(){
                 <h3>Ovos inseridos</h3>
                 <div className="collection">
                 {ovosCadastrados.map(ovo=>(
+                        ovo[`${component}Empty`]===0 || component==='Ovo'? 
                         <div className="row" key={ovo.id}>
                             <div className="title">
                                 <img src={Egg} alt="Ovo Ícone"/>
-                                <h4>Ovo {ovo.id}</h4>
+                                <h4>{component} {ovo.id}</h4>
                             </div>
                             <div className="button-group">
-                                <a href="#">
-                                    <b>+ Detalhes</b>
-                                </a>
-                                <a href="#">
-                                    <b>Editar</b>
-                                </a>
+                                <Link to={`/egg/details?id=${ovo.id}&session=${ovo.secao_id}`}>
+                                    <b>Detalhes / Editar</b>
+                                </Link>
                             </div>
                         </div>
+                        :null
                     ))}
                 </div>
                 <Paginator pages={eggPages} page={page}/>
@@ -69,7 +76,7 @@ export default function Revisar(){
                         </Link>
                     </div>  
                     : null
-                }{insertType==="componentes" && eggQuantity !== null && component!==nextRoute?
+                }{insertType==="componentes" && eggQuantity !== null && component!==nextRoute ?
                     <div className="button-menu">
                         <Link to={`/egg/${nextRoute}`} >
                             {nextRoute}
@@ -78,13 +85,26 @@ export default function Revisar(){
                     </div>
                     : null
                 }
-                {insertType==="componentes" && eggQuantity === null ?
+                {insertType==="componentes" && eggQuantity === null && quantityFixed==='false' && nextRoute!=="finalizar"?
                     <div className="button-menu">
-                        <Link to={`/egg/${nextRoute}`} >
-                            Finalizar
+                        <Link to={`/egg/${nextRoute}`} onClick={nextRouteWithoutQuantity} >
+                            {nextRoute}
                             <FiChevronRight size={20}/>
                         </Link>
                         <Link to={`/egg/${component}`}>
+                            Novo {component}   
+                            <FiRotateCcw size={20}/>
+                        </Link>
+                    </div>  
+                    : null
+                }
+                {insertType==="componentes" && eggQuantity === null && quantityFixed==='false' &&nextRoute==="finalizar"?
+                    <div className="button-menu">
+                        <Link to={`/egg/${nextRoute}`}>
+                            {nextRoute}
+                            <FiChevronRight size={20}/>
+                        </Link>
+                        <Link to='/egg/albumen' onClick={nextRouteWithoutQuantity}>
                             Novo {component}   
                             <FiRotateCcw size={20}/>
                         </Link>

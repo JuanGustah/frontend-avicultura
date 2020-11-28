@@ -36,7 +36,6 @@
 .egg-container .content .container .input-group{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    gap: 30px 0px;
 }
 .egg-container .content .container h4{
     font:700 18px Roboto,'sans-serif';
@@ -61,7 +60,7 @@
     width: 180px;
 }
 .egg-container .content .container .input-buttons{
-    margin-top: 35px;
+    margin-top: 1rem;
 }
 .egg-container .content .container .input-buttons input[type=radio] {
     display:none; 
@@ -109,18 +108,26 @@
     margin-top: 40px;
     float: right;
 }
-.egg-container .content .container .input-group .quantity input{
+.egg-container .content .container .input-group .quantity input[type=number]{
     border-radius:0;
     border:0;
     width: 100px;
     text-align: center;
     -moz-appearance: textfield;
+    margin-bottom:20px;
 }
 .egg-container .content .container .input-group .quantity button{
     background-color: #FFC43A;
     border:0;
     padding:5px 10px;
     box-shadow:0px 1px 4px rgba(0, 0, 0, 0.25)
+}
+.egg-container .content .container .input-group .quantity .checkbox{
+    display: flex;
+    align-items: center;
+}
+.egg-container .content .container .input-group .quantity input[type=checkbox]{
+    margin-right:0.5rem;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

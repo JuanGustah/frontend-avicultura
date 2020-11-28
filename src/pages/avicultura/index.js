@@ -9,6 +9,8 @@ import Revisar from './Egg/revisar'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
 import EggForm from './Egg/eggForm';
+import Finalizar from './Egg/Finalizar';
+import Details from './Egg/detalhes';
 
 export default function Avicultura(){
     const tokenJWT=sessionStorage.getItem('token');
@@ -30,6 +32,8 @@ export default function Avicultura(){
                     <Route path="/egg/albumen" component={Albumen}/>
                     <Route path="/egg/casca" component={Casca}/>
                     <Route path="/egg/revisar/:page" component={Revisar}/>
+                    <Route path="/egg/finalizar" component={Finalizar}/>
+                    <Route path="/egg/details" component={Details}/>
                     <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/profile" component={Profile}/>
                 </Switch>

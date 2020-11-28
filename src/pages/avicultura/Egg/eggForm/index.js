@@ -12,6 +12,7 @@ export default function EggForm(){
     const [loteOvos,setLoteOvos]=useState([]);
     const [loteEscolhido,setLoteEscolhido]=useState('');
     const [quantity,setQuantity]=useState(0);
+    const [quantityEmpty,setquantityEmpty]=useState(false);
     const [insert,setInsert]=useState('componentes');
     const token=sessionStorage.getItem('token');
 
@@ -46,7 +47,11 @@ export default function EggForm(){
                 }
             });
             sessionStorage.setItem('sessionId',response.data.id);
-            sessionStorage.setItem('eggQuantity',quantity);
+
+            if(!quantityEmpty)
+                sessionStorage.setItem('eggQuantity',quantity)
+            else
+                sessionStorage.setItem('quantityFixed',false);
 
             history.push('/egg/albumen');
         }
@@ -82,12 +87,16 @@ export default function EggForm(){
                             </div>
                             <div className="quantity">
                                 <h4>Quantidade de ovos</h4>
-                                <button type="button" onClick={e=>quantity!==0?setQuantity(quantity-1):null}>-</button>
-                                <input type="number"
-                                value={quantity}
-                                onChange={e=>setQuantity(e.target.value)}
-                                min="0"/>
-                                <button type="button" onClick={e=>setQuantity(quantity+1)}>+</button>
+                                    <button type="button" onClick={e=>quantity!==0?setQuantity(quantity*1-1):null}>-</button>
+                                        <input type="number"
+                                        value={quantity}
+                                        onChange={e=>setQuantity(e.target.value)}
+                                        min="0"/>
+                                    <button type="button" onClick={e=>setQuantity(quantity*1+1)}>+</button>
+                                <div className="checkbox">
+                                    <input type="checkbox" id="empty" value={quantityEmpty} onChange={e=>setquantityEmpty(e.target.value)}/>
+                                    <span>Não possuo esse valor</span>
+                                </div>
                             </div>
                         </div>
                         <div className="input-buttons">

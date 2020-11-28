@@ -51,12 +51,15 @@ export default function Paginator({pages,page}){
             }
         }
     }
-    console.log(buttons);
-    return (
-        <form className="paginator-row">
-            <Link to={`/egg/revisar/${page*1-1}`} className="control" value="-" ><FiChevronLeft size={30}/></Link>
-            {buttons}
-            <Link to={`/egg/revisar/${page*1+1}`}className="control" value="+" ><FiChevronRight size={30}/></Link>
-        </form>
-    )
+    if(pages>1){
+        return (
+            <form className="paginator-row">
+               <Link to={`/egg/revisar/${page*1-1}`} className="control" value="-" ><FiChevronLeft size={30}/></Link>
+                    {buttons}
+                <Link to={`/egg/revisar/${page*1+1}`}className="control" value="+" ><FiChevronRight size={30}/></Link>
+            </form>
+        )
+    }else{
+        return null
+    }
 }
