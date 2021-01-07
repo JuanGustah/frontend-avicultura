@@ -1,6 +1,6 @@
 import React from 'react';
 import {FiPower,FiEdit,FiList,FiGlobe,FiHelpCircle} from 'react-icons/fi';
-import {useHistory} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
 
 import './styles.css'
 import addImg from '../../../assets/add_img.svg';
@@ -37,10 +37,10 @@ export default function Profile(){
                             Listar Ovos
                             <FiList color={'#000'} size={25}/>
                         </a>
-                        <a href="#">
+                        <Link to="/profile/list-sector/1">
                             Listar Setores
                             <FiList color={'#000'} size={25}/>
-                        </a>
+                        </Link>
                     </div>
                     <h2>Informações do Site</h2>
                     <div className="options">

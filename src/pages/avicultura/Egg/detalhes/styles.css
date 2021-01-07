@@ -47,7 +47,7 @@
 }
 .details-container .content .header-row .header-group .item input{
     font-size: 1.5rem;
-    width: 1.5rem;
+    width: 2rem;
     max-width: 4rem;
     border:0;
     background: transparent;
@@ -55,7 +55,7 @@
 .details-container .content input{
     font-size: 1rem;
     font-weight: 500;
-    width: 1.5rem;
+    width: 2rem;
     max-width: 4rem;
     border:0;
     background: transparent;

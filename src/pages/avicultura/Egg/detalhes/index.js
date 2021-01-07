@@ -18,22 +18,26 @@ export default function Detalhes(){
     const [loteOvo,setLoteOvo]=useState('');
     const [pesoOvo,setPesoOvo]=useState('');
     const [albumenEmpty,setAlbumenEmpty]=useState('');
+    const [porcentagemAlbumen,setPorcentagemAlbumen]=useState('');
     const [pesoAlbumen,setPesoAlbumen]=useState('');
     const [alturaAlbumen,setAlturaAlbumen]=useState('');
     const [diametroAlbumen,setDiametroAlbumen]=useState('');
     const [uniHaugh,setUniHaugh]=useState('');
     const [gemaEmpty,setGemaEmpty]=useState('');
+    const [porcentagemGema,setPorcentagemGema]=useState('');
     const [pesoGema,setPesoGema]=useState('');
     const [corGema,setCorGema]=useState('');
     const [alturaGema,setAlturaGema]=useState('');
     const [diametroGema,setDiametroGema]=useState('');
     const [indiceGema,setIndiceGema]=useState('');
     const [cascaEmpty,setCascaEmpty]=useState('');
+    const [porcentagemCasca,setPorcentagemCasca]=useState('');
     const [pesoCasca,setPesoCasca]=useState('');
     const [corCasca,setCorCasca]=useState('');
     const [espessuraP1,setEspessuraP1]=useState('');
     const [espessuraP2,setEspessuraP2]=useState('');
     const [espessuraP3,setEspessuraP3]=useState('');
+    const [espessura,setEspessura]=useState('');
 
 
     useEffect(()=>{
@@ -69,9 +73,23 @@ export default function Detalhes(){
 
     useEffect(()=>{
         if(pesoOvo&&pesoCasca&&pesoGema){
-            setPesoAlbumen(parseInt(pesoOvo,10)-parseInt(pesoGema,10)-parseInt(pesoCasca,10));
+            const AlbumenGramas=parseInt(pesoOvo,10)-parseInt(pesoGema,10)-parseInt(pesoCasca,10)
+            setPesoAlbumen(AlbumenGramas);
+            setPorcentagemAlbumen(((AlbumenGramas*100)/pesoOvo).toFixed(1))
         }
     },[pesoOvo,pesoCasca,pesoGema])
+
+    useEffect(()=>{
+        if(pesoOvo&&pesoGema){
+            setPorcentagemGema(((pesoGema*100)/pesoOvo).toFixed(1))
+        }
+    },[pesoOvo,pesoGema])
+
+    useEffect(()=>{
+        if(pesoOvo&&pesoCasca){
+            setPorcentagemCasca(((pesoCasca*100)/pesoOvo).toFixed(1))
+        }
+    },[pesoOvo,pesoCasca])
 
     useEffect(()=>{
         if(pesoOvo&&alturaAlbumen){
@@ -86,6 +104,12 @@ export default function Detalhes(){
         }
         
     },[alturaGema,diametroGema])
+
+    useEffect(()=>{
+        if(espessuraP1&&espessuraP2&&espessuraP3){
+            setEspessura((espessuraP1*1+espessuraP2*1+espessuraP3*1)/3);
+        }
+    },[espessuraP1,espessuraP2,espessuraP3])
 
     async function handleSubmit(event){
         event.preventDefault();
@@ -109,314 +133,181 @@ export default function Detalhes(){
        buttonSubmit.current.disabled=false;
     }
     function renderTables(){
-        if(gemaEmpty===null){
-            return(
-                <div className="row">
-                    <h4>Detalhes do Albúmen</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th className="non-changeble">Peso</th>
-                                <th className="non-changeble">Unidade Haugh</th>
-                                <th>Altura</th>
-                                <th>Diâmetro</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className="non-changeble">
-                                    {pesoAlbumen?
-                                        <label>
-                                            {pesoAlbumen}
-                                            <span>g </span>
-                                        </label>
-                                        :
-                                        null
-                                    }
-                                    
-                                </td>
-                                <td className="non-changeble">
+        return(
+            <div className="tables">
+            <div className="row">
+                <h4>Detalhes do Albúmen</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th className="non-changeble">Porcentagem</th>
+                            <th className="non-changeble">Peso</th>
+                            <th className="non-changeble">Unidade Haugh</th>
+                            <th>Altura</th>
+                            <th>Diâmetro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="non-changeble">
+                                {porcentagemAlbumen?
                                     <label>
-                                    {uniHaugh}
+                                        {porcentagemAlbumen}
+                                        <span>%</span>
                                     </label>
-                                </td>
-                                <td>
+                                    :
+                                    null
+                                }
+                            </td>
+                            <td className="non-changeble">
+                                {pesoAlbumen?
                                     <label>
-                                        <input type="text" value={alturaAlbumen} onChange={e=>setAlturaAlbumen(e.target.value)} name="alturaAlbumen" 
-                                        onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                        {pesoAlbumen}
+                                        <span>g</span>
+                                    </label>
+                                    :
+                                    null
+                                }
+                            </td>
+                            <td className="non-changeble">
+                                <label>
+                                {uniHaugh}
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    <input type="text" value={alturaAlbumen} onChange={e=>setAlturaAlbumen(e.target.value)} name="alturaAlbumen" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                    <span>mm</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    <input type="text" value={diametroAlbumen} onChange={e=>setDiametroAlbumen(e.target.value)} name="diametroAlbumen" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                    <span>mm</span>
+                                </label>
+                            </td>                                    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {gemaEmpty!==null?<div className="row">
+                <h4>Detalhes da Gema</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th className="non-changeble">Índice da gema</th>
+                            <th className="non-changeble">Porcentagem</th>
+                            <th>Peso</th>
+                            <th>Cor</th>
+                            <th>Altura</th>
+                            <th>Diâmetro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="non-changeble">
+                                <label>
+                                {indiceGema}
+                                </label>
+                            </td>
+                            <td className="non-changeble">
+                                {porcentagemGema?
+                                    <label>
+                                        {porcentagemGema}
+                                        <span>%</span>
+                                    </label>
+                                    :
+                                    null
+                                }
+                            </td>
+                            <td>
+                                <label>
+                                    <input type="text" value={pesoGema} onChange={e=>setPesoGema(e.target.value)} name="pesoGema" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                    <span>g</span>
+                                </label>
+                            </td>  
+                            <td>
+                                <label>
+                                    <input type="text" value={corGema} onChange={e=>setCorGema(e.target.value)} name="corGema" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                </label>
+                            </td>  
+                            <td>
+                                <label>
+                                    <input type="text" value={alturaGema} onChange={e=>setAlturaGema(e.target.value)} name="alturaGema" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                    <span>mm</span>
+                                </label>
+                            </td>  
+                            <td>
+                                <label>
+                                    <input type="text" value={diametroGema} onChange={e=>setDiametroGema(e.target.value)} name="diametroGema" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                    <span>mm</span>
+                                </label>
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>:null}
+            {cascaEmpty!==null?<div className="row">
+                <h4>Detalhes da Casca</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th className="non-changeble">Espessura</th>
+                            <th className="non-changeble">Porcentagem</th>
+                            <th>Peso</th>
+                            <th>Cor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className="non-changeble">
+                                {espessura?
+                                    <label>
+                                        {espessura}
                                         <span>mm</span>
                                     </label>
-                                </td>
-                                <td>
+                                    :
+                                    null
+                                }
+                            </td>
+                            <td className="non-changeble">
+                                {porcentagemCasca?
                                     <label>
-                                        <input type="text" value={diametroAlbumen} onChange={e=>setDiametroAlbumen(e.target.value)} name="diametroAlbumen" 
-                                        onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                        <span>mm</span>
+                                        {porcentagemCasca}
+                                        <span>%</span>
                                     </label>
-                                </td>                                    
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            )
-        }else{
-            if(cascaEmpty===null){
-                return(
-                    <div className="tables">
-                    <div className="row">
-                        <h4>Detalhes do Albúmen</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th className="non-changeble">Peso</th>
-                                    <th className="non-changeble">Unidade Haugh</th>
-                                    <th>Altura</th>
-                                    <th>Diâmetro</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className="non-changeble">
-                                        {pesoAlbumen?
-                                            <label>
-                                                {pesoAlbumen}
-                                                <span>g </span>
-                                            </label>
-                                            :
-                                            null
-                                        }
-                                    </td>
-                                    <td className="non-changeble">
-                                        <label>
-                                        {uniHaugh}
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="text" value={alturaAlbumen} onChange={e=>setAlturaAlbumen(e.target.value)} name="alturaAlbumen" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="text" value={diametroAlbumen} onChange={e=>setDiametroAlbumen(e.target.value)} name="diametroAlbumen" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td>                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div className="row">
-                        <h4>Detalhes da Gema</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th className="non-changeble">Índice da gema</th>
-                                    <th>Peso</th>
-                                    <th>Cor</th>
-                                    <th>Altura</th>
-                                    <th>Diâmetro</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className="non-changeble">
-                                        <label>
-                                        {indiceGema}
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="text" value={pesoGema} onChange={e=>setPesoGema(e.target.value)} name="pesoGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>g</span>
-                                        </label>
-                                    </td>  
-                                    <td>
-                                        <label>
-                                            <input type="text" value={corGema} onChange={e=>setCorGema(e.target.value)} name="corGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                        </label>
-                                    </td>  
-                                    <td>
-                                        <label>
-                                            <input type="text" value={alturaGema} onChange={e=>setAlturaGema(e.target.value)} name="alturaGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td>  
-                                    <td>
-                                        <label>
-                                            <input type="text" value={diametroGema} onChange={e=>setDiametroGema(e.target.value)} name="diametroGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td> 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    </div>
-                )
-            }else{
-                return(
-                    <div className="tables">
-                    <div className="row">
-                        <h4>Detalhes do Albúmen</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th className="non-changeble">Peso</th>
-                                    <th className="non-changeble">Unidade Haugh</th>
-                                    <th>Altura</th>
-                                    <th>Diâmetro</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className="non-changeble">
-                                        {pesoAlbumen?
-                                            <label>
-                                                {pesoAlbumen}
-                                                <span>g </span>
-                                            </label>
-                                            :
-                                            null
-                                        }
-                                    </td>
-                                    <td className="non-changeble">
-                                        <label>
-                                        {uniHaugh}
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="text" value={alturaAlbumen} onChange={e=>setAlturaAlbumen(e.target.value)} name="alturaAlbumen" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="text" value={diametroAlbumen} onChange={e=>setDiametroAlbumen(e.target.value)} name="diametroAlbumen" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td>                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div className="row">
-                        <h4>Detalhes da Gema</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th className="non-changeble">Índice da gema</th>
-                                    <th>Peso</th>
-                                    <th>Cor</th>
-                                    <th>Altura</th>
-                                    <th>Diâmetro</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className="non-changeble">
-                                        <label>
-                                        {indiceGema}
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="text" value={pesoGema} onChange={e=>setPesoGema(e.target.value)} name="pesoGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>g</span>
-                                        </label>
-                                    </td>  
-                                    <td>
-                                        <label>
-                                            <input type="text" value={corGema} onChange={e=>setCorGema(e.target.value)} name="corGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                        </label>
-                                    </td>  
-                                    <td>
-                                        <label>
-                                            <input type="text" value={alturaGema} onChange={e=>setAlturaGema(e.target.value)} name="alturaGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td>  
-                                    <td>
-                                        <label>
-                                            <input type="text" value={diametroGema} onChange={e=>setDiametroGema(e.target.value)} name="diametroGema" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td> 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div className="row">
-                        <h4>Detalhes da Casca</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Peso</th>
-                                    <th>Cor</th>
-                                    <th>Espessura (Ponto 1)</th>
-                                    <th>Espessura (Ponto 2)</th>
-                                    <th>Espessura (Ponto 3)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input type="text" value={pesoCasca} onChange={e=>setPesoCasca(e.target.value)} name="pesoCasca" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>g</span>
-                                        </label>
-                                    </td> 
-                                    <td>
-                                        <label>
-                                            <input type="text" value={corCasca} onChange={e=>setCorCasca(e.target.value)} name="corCasca" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                        </label>
-                                    </td> 
-                                    <td>
-                                        <label>
-                                            <input type="text" value={espessuraP1} onChange={e=>setEspessuraP1(e.target.value)} name="espessuraP1" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td> 
-                                    <td>
-                                        <label>
-                                            <input type="text" value={espessuraP2} onChange={e=>setEspessuraP2(e.target.value)} name="espessuraP2" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td> 
-                                    <td>
-                                        <label>
-                                            <input type="text" value={espessuraP3} onChange={e=>setEspessuraP3(e.target.value)} name="espessuraP3" 
-                                            onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
-                                            <span>mm</span>
-                                        </label>
-                                    </td> 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                )
-            }
-        }
+                                    :
+                                    null
+                                }
+                            </td>
+                            <td>
+                                <label>
+                                    <input type="text" value={pesoCasca} onChange={e=>setPesoCasca(e.target.value)} name="pesoCasca" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                    <span>g</span>
+                                </label>
+                            </td> 
+                            <td>
+                                <label>
+                                    <input type="text" value={corCasca} onChange={e=>setCorCasca(e.target.value)} name="corCasca" 
+                                    onInput={e=>e.target.style.width = e.target.scrollWidth*1+5 + 'px'}/>
+                                </label>
+                            </td> 
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>:null}
+        </div>
+        )
     }
+    
 
     return(
         <div className="details-container">

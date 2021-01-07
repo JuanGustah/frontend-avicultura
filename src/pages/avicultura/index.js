@@ -8,6 +8,8 @@ import Casca from './Egg/casca'
 import Revisar from './Egg/revisar'
 import Dashboard from './Dashboard'
 import Profile from './Profile'
+import ListSector from './Profile/listSector'
+import DetailSector from './Profile/detailSector'
 import EggForm from './Egg/eggForm';
 import Finalizar from './Egg/Finalizar';
 import Details from './Egg/detalhes';
@@ -35,7 +37,9 @@ export default function Avicultura(){
                     <Route path="/egg/finalizar" component={Finalizar}/>
                     <Route path="/egg/details" component={Details}/>
                     <Route path="/dashboard" component={Dashboard}/>
-                    <Route path="/profile" component={Profile}/>
+                    <Route path="/profile" exact component={Profile}/>
+                    <Route path="/profile/list-sector/:page"  component={ListSector}/>
+                    <Route path="/profile/sector" component={DetailSector}/>
                 </Switch>
         </div>
     )

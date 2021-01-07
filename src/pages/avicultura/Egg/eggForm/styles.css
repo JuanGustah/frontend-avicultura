@@ -16,7 +16,10 @@
     justify-content: space-between;
 }
 .egg-container .content header h2{
-    color: #fff;
+    color:#fff;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.45);
+    font-size:1.6rem;
+    font-weight: 900;
 }
 .egg-container .content header button{
     border:0;

@@ -66,7 +66,7 @@ export default function Revisar(){
                         :null
                     ))}
                 </div>
-                <Paginator pages={eggPages} page={page}/>
+                <Paginator src="/egg/revisar/" pages={eggPages} page={page}/>
                 </div>
                 {insertType==="componentes" && eggQuantity !== null && component===nextRoute?
                     <div className="button-menu">

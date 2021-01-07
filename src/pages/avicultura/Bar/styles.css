@@ -32,75 +32,38 @@
 .bar-container section a+a{
     margin-top: 30px;
 }
-.bar-container section a.Dashboard img{
+.bar-container section a#Dashboard img{
     width: 30px;
 }
-.bar-container section a.Dashboard h4{
-    color:#1976D2;
+.bar-container section a h4{
+    color:#242424;
     font-size: 18px;
     margin-left: 15px;
 }
-.bar-container section a.Setor{
+.bar-container section a.dashboardActive h4{
+    color:#1976D2;
+}
+.bar-container section a.sectorActive h4{
     color:#F64242;
 }
-.bar-container section a.Setor .text{
+.bar-container section a.eggActive h4{
+    color:#FFC43A;
+}
+.bar-container section a.userActive h4{
+    color:#11ADE8;
+}
+.bar-container section a #text{
     text-align: left;
 }
 .bar-container section a.Setor img{
     width: 30px;
 }
-.bar-container section a.Setor h4,.bar-container section a.Setor p{
-    margin-left: 15px;
-}
-.bar-container section a.Setor h4{
-    font-size: 18px;
-}
-.bar-container section a.Setor p{
-    font-size: 18px;
-}
-.bar-container section a.Ovos{
-    color:#FFC43A;
-}
 .bar-container section a.Ovos img{
     width: 30px;
     height: 40px;
 }
-.bar-container section a.Ovos .text{
-    text-align: left;
-}
-.bar-container section a.Ovos h4,.bar-container section a.Ovos p{
-    margin-left: 10px;
-}
-.bar-container section a.Ovos h4{
-    font-size: 18px;
-}
-.bar-container section a.Ovos p{
-    font-size: 18px;
-}
-.bar-container section a.Granja{
-    color:#11ADE8;
-}
 .bar-container section a.Granja img{
     width: 30px;
 }
-.bar-container section a.Granja .text{
-    text-align: left;
-}
-.bar-container section a.Granja h4,.bar-container section a.Granja p{
-    margin-left: 14px;
-}
-.bar-container section a.Granja h4{
-    font-size: 18px;
-}
-.bar-container section a.Granja p{
-    font-size: 18px;
-}
-.bar-container hr{
-    position: relative;
-    float: right;
-    transform: rotate(90deg);
-    width:40px;
-    border:1px solid #1976D2;
-    transition: top 1s;
-}
+
 

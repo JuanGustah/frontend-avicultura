@@ -6,7 +6,7 @@ import './styles.css';
 import api from '../../../services/api';
 
 export default function Sector(){
-    const [galpao,setGalpao]=useState(0);
+    const [galpao,setGalpao]=useState('');
     const [linhagem,setLinhagem]=useState('');
     const [idade,setIdade]=useState(0);
     const [nutrição,setNutricao]=useState('');
@@ -15,7 +15,7 @@ export default function Sector(){
     const history=useHistory();
 
     async function handleSector(event){
-
+        event.preventDefault();
         const data={
             linhagem,
             idade,
@@ -29,7 +29,12 @@ export default function Sector(){
                     Authorization:token,
                 }
             }).then( response =>{
-                alert(`Setor cadastrado com Sucesso! Seu id é: ${response.data.id}`)
+                alert(`Setor cadastrado com Sucesso! Id do Setor é: ${response.data.id}`);
+                setGalpao('');
+                setLinhagem('');
+                setIdade(0);
+                setNutricao('');
+                setAves(0);
             })
         }
         catch(error){
@@ -69,7 +74,7 @@ export default function Sector(){
                                 /> 
                             </div>
                             <div className="input">
-                                <h4>Idade</h4>
+                                <h4>Idade das Aves</h4>
                                 <div className="label">
                                     <input type="number"
                                     value={idade}

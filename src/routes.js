@@ -28,6 +28,8 @@ export default function Routes(){
                 <Route path="/egg/details" component={Avicultura}/>
                 <Route path="/dashboard" component={Avicultura}/>
                 <Route path="/profile" component={Avicultura}/>
+                <Route path="/profile/list-sector" component={Avicultura}/>
+                <Route path="/profile/sector" component={Avicultura}/>
             </Switch>
         </BrowserRouter>
     )
