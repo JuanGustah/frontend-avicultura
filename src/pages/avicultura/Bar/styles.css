@@ -15,11 +15,7 @@
     width: 70px;
 }
 .bar-container h3{
-    font:700 25px Roboto,'sans-serif';
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    stroke-width: 1px;
-    stroke: #000;
+    font:900 25px Roboto,'sans-serif';
 }
 .bar-container section{
     margin-top: 40px;
