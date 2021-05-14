@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<img src="Banner.png">
+</p>
 
-## Available Scripts
+## 📌 Do que se trata?
+AvaliaOvo é um sistema de automação e sistematização de dados de ovos e seus componentes para medir e avaliar o indíce da cor de seus componentes. Desenvolvido pelas Instituições Federais Universidade do Agreste Pernambucano (UFAPE) e Insituto Federal de Pernambuco (IFPE).
 
-In the project directory, you can run:
+## 💻 Tecnologias
 
-### `npm start`
+* React
+* Axios
+* Google Charts (React Wrapperr)
+* HTML/CSS/JS
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Inicializando o projeto
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Para que o sistema rode na sua máquina é necessário uma série de etapas listadas a baixo:
 
-### `npm test`
+### ⚙️ Pré-Requisitos
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O código deste repositório se refere a parte do Front-end da aplicação AvaliaOvo. Para fazê-la funcionar é necessário ter o Back-end pronto na sua máquina. Para isto, acesse este repositório: [Back-end AvaliaOvo](https://github.com/Nidhoggui/heroku-avicultura-backend)
 
-### `npm run build`
+### ⏬ Instalação
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tendo os pré-requisitos já configurados,vamos começar clonando o repositório na nosssa máquina. Para isso escolha uma pasta onde será clonado o repositório,abra o terminal/cmd e use o comando do *git* abaixo:
+```
+git clone https://github.com/JuanGustah/frontend-avicultura
+```
+Após isso,use ``cd frontend-avicultura`` para acessar o projeto clonado.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+A segunda etapa será instalar as bibliotecas necessária do sistema para garantir seu funcionamento. Estando na pasta do projeto via terminal/cmd use:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install
+```
+Após baixado, vá em **src>services>api.js** e via Editor de código mude as linhas abaixo:
 
-### `npm run eject`
+```
+const api = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+})
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+para o modelo abaixo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+const api = axios.create({
+    baseURL: "http://localhost:[porta em que o back-end está sendo executado]",
+})
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+Por fim utilize o comando para rodar a aplicação em localhost:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm start
+```
+Ele executará e abrirá no seu navegador mas caso não abra cole o link: **localhost:3000** em seu navegador e você verá a aplicação funcionando.
 
-## Learn More
+## 🙏 Atribuições
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Flaticon](https://www.flaticon.com/) Pelos ícones utilizados no sistema.
+- [unDraw](https://undraw.co/)  Pelas figuras utilizadas no sistema.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 💛 Do nosso time para todos:
+Obrigado por visualizar nosso projeto, se precisar de alguma ajuda, sinta-se livre para abrir uma issue com a descrição do problema.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
