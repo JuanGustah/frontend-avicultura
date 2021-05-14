@@ -1,0 +1,22 @@
+.card-container{
+    display: flex;
+    align-items: center;
+
+    width: 200px;
+    height: 100px;
+    background-color: #fff;
+    padding-left: 1rem;
+    margin-right: 1.5rem;;
+    border-radius:15px;
+}
+.card-container h1{
+    color:#1976D2;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-right: 0.7rem;
+}
+.card-container p{
+    font-size: 1.25rem;
+    color:#1976D2;
+    word-break: break-word;
+}

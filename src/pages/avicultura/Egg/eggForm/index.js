@@ -21,6 +21,9 @@ export default function EggForm() {
         sessionStorage.clear();
         history.push('/');
     }
+    useEffect(() => {
+        document.title = "Cadastro de Ovos - Avicultura"
+    }, []);
 
     useEffect(() => {
         api.get('/perfil-lote', {

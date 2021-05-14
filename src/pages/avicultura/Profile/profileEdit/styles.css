@@ -1,0 +1,183 @@
+.edit-container{
+    width: 100%;
+    height: 100vh;
+
+    display:flex;
+    background: linear-gradient(180deg, #11ADE8 0%, rgba(100, 212, 255, 0.49) 100%);
+    background-size:100vw 60vh;
+    background-repeat:no-repeat ;
+}
+.edit-container .content{
+    display: flex;
+    flex-direction: column;
+    padding-left:5%;
+    padding-top:6vh ;
+}
+.edit-container .content header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.edit-container .content header button{
+    border:0;
+    background-color: transparent;
+    margin-top: 0.43em;
+}
+.edit-container .content h2{
+    color: #fff;
+}
+.edit-container .content .container{
+    margin-top: 20px;
+    margin-bottom:30px;
+    margin-left:8vw;
+    margin-right:8vw;
+    padding:30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.726);
+    width: 50vw;
+}
+.edit-container .content .container h2{
+    color:#000;
+    margin-bottom:15px;
+}
+.edit-container .content .container .v-row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.edit-container .content .container .v-row .img-container{
+    border:4px solid rgb(184, 184, 184);
+    width: 14vh;
+    height: 14vh;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+.edit-container .content .container .v-row .input{
+    display: flex;
+    align-items: center;
+}
+.edit-container .content .container .v-row .input input{
+    background: transparent;
+    border:0;
+    border-bottom: 1px solid rgb(122, 122, 122);
+    text-align: center;
+    margin-top: 10px;
+}
+.edit-container .content .container .v-row h4{
+    background: #11ADE8;
+    color:#fff;
+
+    padding:0.4rem;
+    margin-top: 10px;
+}
+.edit-container .content .container .form-group{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap:5rem;
+
+    margin-top: 20px;
+}
+.edit-container .content .container .row .input{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    justify-content: center;
+}
+.edit-container .content .container .row .input input{
+    font-weight: 500;
+    color: #0a5f7e;
+    background: transparent;
+    border:0;
+    border-bottom: 1px solid rgb(122, 122, 122);
+    margin-top: 10px;
+}
+.edit-container .content .row-button{
+    display: flex;
+    justify-content: center;
+}
+.edit-container .content button{
+    text-align: center;
+    width: 10rem;
+    padding:0.7rem 0;
+    background-color: #11ADE8;
+    color:#fff;
+    border:0;
+    border-radius: 25px;
+    transition: all 0.4s;
+}
+.edit-container .content .row-button button:disabled{
+    opacity: 0%;
+    cursor:initial;
+}
+.edit-container .content .row-button button:hover{
+    box-shadow:0px 3px 6px rgba(0, 0, 0, 0.274);
+}
+.container-checkbox {
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    z-index:5;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(218, 218, 218);
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container-checkbox input:checked ~ .checkmark {
+    background-color: #0a5f7e;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

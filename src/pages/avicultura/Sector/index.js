@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiChevronRight, FiPower } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom'
 import './styles.css';
@@ -49,7 +49,9 @@ export default function Sector() {
         sessionStorage.clear();
         history.push('/');
     }
-
+    useEffect(() => {
+        document.title = "Cadastro de Lote - Avicultura"
+    }, []);
     return (
         <div className="section-container">
             <div className="content">

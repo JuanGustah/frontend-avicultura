@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { FiEye, FiEyeOff } from 'react-icons/fi';
@@ -18,6 +18,10 @@ export default function Physical() {
     const [termosDeUso, setTermosDeUso] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const history = useHistory();
+
+    useEffect(() => {
+        document.title = "Registrar: Granja Física - Avicultura"
+    }, []);
 
     async function handleRegister(event) {
         event.preventDefault();

@@ -1,0 +1,141 @@
+.detailEgg-container{
+    width: 100%;
+    height: 100vh;
+    
+    display:flex;
+    background: linear-gradient(180deg, #11ADE8 0%, rgba(100, 212, 255, 0.49) 100%);
+    background-size:100vw 60vh;
+    background-repeat:no-repeat ;
+}
+
+.detailEgg-container .content{
+  padding: 30px 50px;
+}
+.detailEgg-container .content header .header-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.detailEgg-container .content header .header-row+.header-row{
+  justify-content: flex-end;
+
+  margin:0;
+}
+.detailEgg-container .content header h2{
+  color:#fff;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.45);
+  font-size:1.6rem;
+  font-weight: 900;
+}
+.detailEgg-container .content header h3{
+  font-size:1.2rem;
+}
+.detailEgg-container .content header button{
+  border:0;
+  background-color: transparent;
+  padding: 0px;
+  margin:0px;
+}
+.detailEgg-container .content .container{
+ margin-top: 10px;
+ padding: 30px;
+ background-color: #fff;
+ border-radius: 15px;
+ box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.726);
+ width: 55vw;
+ height: 70vh;
+}
+.detailEgg-container .content .header-row .header-group .item input{
+    font-size: 1.5rem;
+    width: 2rem;
+    max-width: 4rem;
+    border:0;
+    background: transparent;
+}
+.detailEgg-container .content input{
+    font-size: 1rem;
+    font-weight: 500;
+    width: 2rem;
+    max-width: 4rem;
+    border:0;
+    background: transparent;
+    text-align: center;
+}
+.detailEgg-container .content .container .header-row{
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 1.5rem;
+}
+.detailEgg-container .content .container .header-row .header-group{
+    display: flex;
+}
+.detailEgg-container .content .container .header-row .header-group .item{
+    margin: 0 1rem;
+}
+.detailEgg-container .content .container .header-row .header-group .item h4{
+    font-weight: 500;
+}
+.detailEgg-container .content .container .header-row .header-group .item h4{
+    font-weight: 500;
+}
+.detailEgg-container .content .container .header-row .header-group .item p{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.detailEgg-container .content .container .header-row a{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+.detailEgg-container .content .container .header-row svg{
+    margin-right: 6px;
+}
+.detailEgg-container .content .container .row h4{
+    font-size: 1rem;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+.detailEgg-container .content .container .row table{
+    background-color: rgba(196, 196, 196, 0.50);
+    padding:0.5rem;
+}
+.detailEgg-container .content .container .row table th{
+    padding:0 1rem;
+}
+.detailEgg-container .content .container .row table td{
+    padding-top:10px;
+}
+.detailEgg-container .content .container .row table thead{
+    text-align:center;
+}
+.detailEgg-container .content .container .row table tbody{
+    text-align:center;
+}
+.detailEgg-container .content .container .row table th.non-changeble,
+.detailEgg-container .content .container .row table td.non-changeble{
+    font-weight: 900;
+}
+.detailEgg-container .content button:disabled{
+    opacity: 0%;
+    cursor:initial;
+}
+.detailEgg-container .content button{
+    font:500 15px Roboto,'sans-serif';
+    display: flex;
+    align-items: center;
+    border: 0;
+    border-radius: 15px;
+    background: #1976D2;
+    color: #fff;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 15px;
+    margin-top: 15px;
+    float: right;
+
+    transition: all 1s;
+}
+.detailEgg-container .content button svg{
+    margin-left:0.5rem;
+} 
+
