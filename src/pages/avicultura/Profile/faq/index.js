@@ -122,11 +122,19 @@ export default function FAQ() {
                             </p>
                         </Collapsible>
                         <Collapsible
+                            trigger={<label className="trigger"><p>No campo Galpão, ponho letras ou números?</p> <FiChevronDown size={20} color={"#11ADE8"} /></label>}
+                            triggerWhenOpen={<label className="trigger"><p>No campo Galpão, ponho letras ou números? </p> <FiChevronUp size={20} color={"#11ADE8"} /></label>}
+                        >
+                            <p>
+                                Para se aproximar do modelo real, este campo aceita apenas números.
+                            </p>
+                        </Collapsible>
+                        <Collapsible
                             trigger={<label className="trigger"><p>No campo Lote, ponho letras ou números?</p> <FiChevronDown size={20} color={"#11ADE8"} /></label>}
                             triggerWhenOpen={<label className="trigger"><p>No campo Lote, ponho letras ou números? </p> <FiChevronUp size={20} color={"#11ADE8"} /></label>}
                         >
                             <p>
-                                Ambos o valores são aceitos, insira a referência que seja melhor para o reconhecimento posterior por você.
+                                Para se aproximar do modelo real, este campo aceita apenas números.
                             </p>
                         </Collapsible>
                     </div>
@@ -162,8 +170,8 @@ export default function FAQ() {
                             triggerWhenOpen={<label className="trigger"><p>Inseri uma informação incorreta, o que eu faço?</p> <FiChevronUp size={20} color={"#11ADE8"} /></label>}
                         >
                             <p>
-                                Você pode em qualquer momento da inserção clicar na opção <strong>Visualizar</strong>
-                                que lhe mostrará a lista de ovos ou componentes inseridos até aquele momento de forma enumerada,
+                                Você pode em qualquer momento da inserção clicar na opção <strong>Visualizar</strong> que
+                                lhe mostrará a lista de ovos ou componentes inseridos até aquele momento de forma enumerada,
                                 com isso basta clicar em <strong>Detalhes / Editar</strong> para alterar o valor desejado desse ovo.
                                 Ou caso prefira,você pode terminar a inserção das informações de todos os ovos e posterioremente alterar
                                 alguma informação incorreta na listagem de ovos em seu perfil.

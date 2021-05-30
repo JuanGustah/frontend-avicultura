@@ -54,11 +54,10 @@
 .bar-container section a.Setor img{
     width: 30px;
 }
-.bar-container section a.Ovos img{
+.bar-container section a.Egg img{
     width: 30px;
-    height: 40px;
 }
-.bar-container section a.Granja img{
+.bar-container section a.User img{
     width: 30px;
 }
 

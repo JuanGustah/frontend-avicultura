@@ -4,8 +4,8 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 import logoImg from '../../../assets/chicken.svg'
 import Dashboard from '../../../assets/dashboard.svg'
 import DashboardAlt from '../../../assets/dashboard_alt.svg'
-import sector from '../../../assets/sector.svg'
-import sectorAlt from '../../../assets/sector_alt.svg'
+import Sector from '../../../assets/sector.svg'
+import SectorAlt from '../../../assets/sector_alt.svg'
 import Egg from '../../../assets/egg.svg'
 import EggAlt from '../../../assets/egg_alt.svg'
 import User from '../../../assets/user.svg'
@@ -15,7 +15,6 @@ import './styles.css'
 export default function Bar() {
     const [linkActive, setLinkActive] = useState(sessionStorage.getItem("activeItem")
         ? sessionStorage.getItem("activeItem") : "Dashboard");
-
     function handleActiveLink(event) {
         setLinkActive(event.target.className);
         sessionStorage.setItem("activeItem", event.target.className)
@@ -29,7 +28,7 @@ export default function Bar() {
 
             <div className="route-container">
                 <section>
-                    <NavLink to="/dashboard" activeClassName="dashboardActive" id="Dashboard" onClick={handleActiveLink}>
+                    <NavLink to="/dashboard" activeClassName="dashboardActive" className="Dashboard" id="Dashboard" onClick={handleActiveLink}>
                         {linkActive === "Dashboard" ?
                             <>
                                 <img className="Dashboard" src={Dashboard} alt="Imagem Logo" />
@@ -45,15 +44,15 @@ export default function Bar() {
                     <NavLink to="/sector" activeClassName="sectorActive" className="Setor" onClick={handleActiveLink}>
                         {linkActive === "Setor" ?
                             <>
-                                <img className="Setor" src={sector} alt="Imagem Logo" />
-                                <div id="text">
+                                <img className="Setor" src={Sector} alt="Imagem Logo" />
+                                <div className="Setor" id="text">
                                     <h4 className="Setor">Cadastrar</h4>
                                     <h4 className="Setor">Setor</h4>
                                 </div>
                             </> :
                             <>
-                                <img className="Setor" src={sectorAlt} alt="Imagem Logo" />
-                                <div id="text">
+                                <img className="Setor" src={SectorAlt} alt="Imagem Logo" />
+                                <div className="Setor" id="text">
                                     <h4 className="Setor">Cadastrar</h4>
                                     <h4 className="Setor">Setor</h4>
                                 </div>
@@ -61,11 +60,11 @@ export default function Bar() {
                         }
 
                     </NavLink>
-                    <NavLink to="/egg" activeClassName="eggActive" className="Ovos" onClick={handleActiveLink}>
+                    <NavLink to="/egg" activeClassName="eggActive" className="Egg" onClick={handleActiveLink}>
                         {linkActive === "Egg" ?
                             <>
                                 <img className="Egg" src={Egg} alt="Imagem Logo" />
-                                <div id="text">
+                                <div className="Egg" id="text">
                                     <h4 className="Egg">Cadastrar</h4>
                                     <h4 className="Egg">Ovos</h4>
                                 </div>
@@ -73,25 +72,25 @@ export default function Bar() {
                             :
                             <>
                                 <img className="Egg" src={EggAlt} alt="Imagem Logo" />
-                                <div id="text">
+                                <div className="Egg" id="text">
                                     <h4 className="Egg">Cadastrar</h4>
                                     <h4 className="Egg">Ovos</h4>
                                 </div>
                             </>
                         }
                     </NavLink>
-                    <NavLink to="/profile" activeClassName="userActive" className="Granja" onClick={handleActiveLink}>
+                    <NavLink to="/profile" activeClassName="userActive" className="User" onClick={handleActiveLink}>
                         {linkActive === "User" ?
                             <>
                                 <img className="User" src={User} alt="Imagem Logo" />
-                                <div id="text">
+                                <div className="User" id="text">
                                     <h4 className="User">Minha</h4>
                                     <h4 className="User">Granja</h4>
                                 </div>
                             </> :
                             <>
                                 <img className="User" src={UserAlt} alt="Imagem Logo" />
-                                <div id="text">
+                                <div className="User" id="text">
                                     <h4 className="User">Minha</h4>
                                     <h4 className="User">Granja</h4>
                                 </div>
