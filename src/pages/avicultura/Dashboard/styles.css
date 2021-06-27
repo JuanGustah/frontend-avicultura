@@ -1,6 +1,5 @@
 .dashboard-container{
     width: 100%;
-    height: 100vh;
 
     display:flex;
     background: linear-gradient(180deg, #3496C2 0%, #080030 100%);

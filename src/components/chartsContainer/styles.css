@@ -67,6 +67,39 @@
 .dashboard-container .content .charts-container .box form button svg{
     margin-left:5px;
 }
+.dashboard-container .content .charts-container .box div{
+    padding-left: 10px;
+}
+.dashboard-container .content .charts-container .box .google-visualization-table-table {
+    margin-top: 10px;
+    margin-left: 1rem;
+
+    font:400 16px Roboto,'sans-serif';
+    text-align: center;
+    width: 500px;
+}
+.dashboard-container .content .charts-container .box .header>th {
+    background: #1976D2;
+    color:#fff;
+}
+.dashboard-container .content .charts-container .box .cell {
+    height: 40px;
+}
+.dashboard-container .content .charts-container .box .chart-options{
+    margin-left: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+.dashboard-container .content .charts-container .box .chart-options svg{
+    margin-right: 0.5rem;
+}
+.dashboard-container .content .charts-container .box .chart-options select{
+    font:700 16px Roboto,'sans-serif';
+    border: 0;
+    color:#1976D2;
+    font-weight: 500;
+    padding:1px;
+}
 .dashboard-container .content .charts-container .box .empty{
     display: flex;
     flex-direction: column;
